@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <!-- html5 meta -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Hans Liu">
+    <meta name="description" content="eTraining Course Finder 是一個支援快速尋找產業人才投資方案課程的網站">
+    <meta name="keywords" content="etraining, 產投, 勞動部, 產業人才投資方案">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <base target="{% block basetarget %}_self{% endblock %}">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- parser -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="baiduspider" content="index, nofollow">
+
+    <!-- fb -->
+
+    <!-- og -->
+
+    <!-- cdn css -->
+    <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- css -->
+    <link href="/static/normalize.css" rel="stylesheet">
+    <link href="/static/main.css" rel="stylesheet">
+
+    <!-- javascript -->
+</head>
+<body>
+    <div id="container">
+
+        <header>
+        </header>
+
+        <div id="navbar">
+            <nav>
+                <a href="/" target="_self">eCourseFinder</a>
+                <ul>
+                    <li><a href="/about" target="_self">About</a></li>
+                </ul>
+            </nav>
+            <form class="pure-form" action="/" method="post">
+                <fieldset>
+                  <input id="query" type="text" name="query" placeholder="請在這欄輸入課程名稱/單位" value="{{ query }}" style="width:100%;">
+                </fieldset>
+            </form>
+        </div>
+
+        <!--[if lt IE 10]>
+        <div class='old-ie'>
+            <p>你的瀏覽器有點太舊囉！這個瀏覽器可能會沒辦法正常瀏覽這個網站，建議你更換一個瀏覽器或升級現在的瀏覽器。</p>
+            <ol>
+                <li><a title='換成速度最快的 Chrome' target='_blank' href='https://www.google.com/chrome'>Get Chrome</a></li>
+                <li><a title='享受有許多附加套件的 Firefox' target='_blank' href='http://mozilla.com.tw/firefox/'>Get Firefox</a></li>
+                <li><a title='升級原本的瀏覽器' target='_blank' href='http://windows.microsoft.com/zh-TW/internet-explorer/download-ie'>Upgrade IE</a></li>
+            </ol>
+            <p></p>
+        </div>
+        <![endif]-->
+
+        <div id="content">
+            {% block content %}
+            <div class="loading">
+                <i class="fa fa-spinner fa-pulse fa-4x"></i>
+            </div>
+            {% endblock %}
+        </div>
+
+        <footer>
+        </footer>
+    </div>
+</body>
+</html>

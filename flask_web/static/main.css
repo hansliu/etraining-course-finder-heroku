@@ -1,0 +1,119 @@
+a {
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+/* 未連結 */
+a:link {
+}
+/* 已連結過 */
+a:visited {
+}
+/* 滑鼠移至連結 */
+a:hover {
+  text-decoration: underline;
+  background-color: linen; /*lavender color*/
+  border-radius: 4px;
+}
+/* 選擇的連結 */
+a:active {
+}
+
+body {
+  color: #222;
+  background-image: url(/static/ricepaper_v3/ricepaper_v3.png);
+}
+
+nav {
+  width: 100%;
+  min-height: 40px;
+  white-space: nowrap;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  zoom: 1;
+}
+
+nav a {
+  color: #777;
+  margin: 0;
+  padding: 0.5em 1em;
+  vertical-align: middle;
+  float: left;
+}
+
+nav a:hover {
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+nav li {
+  position: relative;
+}
+
+p {
+  text-align: justify;
+}
+
+#container {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+#navbar {
+  padding: 0.2em 1.2em;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+#content {
+  margin: 0em 1.2em;
+  line-height: 1.2em;
+}
+
+#content a {
+  color: blue;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+
+#content .loading {
+  text-align: center;
+}
+
+#course {
+  padding: 0.2em 1.2em;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+#course li {
+  border-bottom: 1px;
+}
+
+#course span {
+  margin: 0.1em 0.2em;
+  padding: 0.1em 0.2em;
+  border-radius: 4px;
+}
+
+#course .register {
+  background-color: lightgray;
+  font-size: 0.8em;
+}
+
+#course .applying {
+  color: darkred;
+  background-color: lightyellow;
+}
+
+#about {
+  padding: 0.2em 1.2em;
+  background-color: rgba(255, 255, 255, 1);
+}

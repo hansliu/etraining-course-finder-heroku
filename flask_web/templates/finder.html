@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}The eTraining Course Finder in Taiwan{% endblock %}
+
+{% block content %}
+<div id="course">
+    {% for item in course_list %}
+    <ul class="fa-ul">
+        <li>
+            <span><a href="http://tims.etraining.gov.tw/timsonline/index3.aspx?OCID={{ item.id }}" target="_blank"><i class="fa-li fa fa-hand-o-right fa-fw"></i>課程代號: {{ item.id|trim }}</a></span>
+            <br>
+            <span class="city">開課地點: {{ item.city|trim }}</span> <span class="opening">開課日期: {{ item.opening|trim }}</span>
+            <br>
+            <span class="applying">報名日期: {{ item.applying|trim }}</span>
+            <br>
+            <span class="name">課程名稱/單位: {{ item.name|trim }}</span>
+            <br>
+            <span class="sponsor">{{ item.sponsor|trim }}</span>
+            <br>
+            <span class="register">已{{ item.register|trim }} 人</span>
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}
