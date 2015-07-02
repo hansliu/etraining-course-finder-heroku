@@ -19,7 +19,7 @@ class CourseOperation(object):
     self.conn = None
     self.cur = None
 
-  def run():
+  def run(self):
     now = datetime.datetime.now()
     if os.path.exists(self.db_path):
       dataset = parser.run(now.month, 12)
