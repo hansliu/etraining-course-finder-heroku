@@ -95,6 +95,7 @@ def parse_course(driver, city, start_month, end_month, year=None):
         opening = strftime("%Y-%m-%d", strptime(opening, "%Y/%m/%d"))
       except Exception as e:
         opening = '嗚嗚找不到'
+      # get ending date
       try:
         ending = driver.find_element_by_xpath('//*[@id="DG_ClassInfo_ctl'+col+'_Label17"]').text.strip()
         ending = strftime("%Y-%m-%d", strptime(opening, "%Y/%m/%d"))

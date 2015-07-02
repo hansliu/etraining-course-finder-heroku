@@ -67,6 +67,7 @@ class CourseOperation(object):
         register TEXT,
         applying DATETIME,
         opening DATE,
+        ending DATE,
         primary key (id)
       )
     ''')
@@ -75,12 +76,12 @@ class CourseOperation(object):
   @within_db_transaction
   def insert_course(self, dataset):
     for key, val in dataset.items():
-      self.cur.execute('INSERT or IGNORE INTO course VALUES (?, ?, ?, ?, ?, ?, ?)', (key, val['city'], val['name'], val['sponsor'], val['register'], val['applying'], val['opening'],))
+      self.cur.execute('INSERT or IGNORE INTO course VALUES (?, ?, ?, ?, ?, ?, ?)', (key, val['city'], val['name'], val['sponsor'], val['register'], val['applying'], val['opening'], val['ending'],))
 
   @within_db_transaction
   def update_course(self, dataset):
     for key, val in dataset.items():
-      self.cur.execute('UPDATE course SET city=?, name=?, sponsor=?, register=?, applying=?, opening=? WHERE id=?', (val['city'], val['name'], val['sponsor'], val['register'], val['applying'], val['opening'], key,))
+      self.cur.execute('UPDATE course SET city=?, name=?, sponsor=?, register=?, applying=?, opening=?, ending=? WHERE id=?', (val['city'], val['name'], val['sponsor'], val['register'], val['applying'], val['opening'], val['ending'], key,))
 
   @within_db_transaction
   def get_course_by_query(self, query):
