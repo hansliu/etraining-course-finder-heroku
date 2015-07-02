@@ -2,6 +2,7 @@
 {% block title %}The eTraining Course Finder in Taiwan{% endblock %}
 
 {% block content %}
+{% if course_list %}
 <div id="course">
     {% for item in course_list %}
     <ul class="fa-ul">
@@ -21,4 +22,5 @@
     </ul>
     {% endfor %}
 </div>
+{% endif %}
 {% endblock %}
