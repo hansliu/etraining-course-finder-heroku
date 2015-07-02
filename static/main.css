@@ -21,6 +21,8 @@ a:active {
 
 body {
   color: #222;
+  font-size: 16px;
+  font-family: "Lucida Sans", sans-serif;
   background-image: url(/static/ricepaper_v3/ricepaper_v3.png);
 }
 
