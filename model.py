@@ -21,10 +21,15 @@ class CourseOperation(object):
 
   def run(self):
     now = datetime.datetime.now()
-    dataset = parser.run(now.month-1, 12)
-    self.create_course_table()
-    self.insert_course(dataset)
-    self.output_json_file(dataset)
+    if os.path.exists(self.db_path):
+      dataset = parser.run(now.month-1, 12)
+      self.update_course(dataset)
+      self.output_json_file(dataset)
+    else:
+      dataset = parser.run(now.month-1, 12)
+      self.create_course_table()
+      self.insert_course(dataset)
+      self.output_json_file(dataset)
     pass
 
   # decorator
