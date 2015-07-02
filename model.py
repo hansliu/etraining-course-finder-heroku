@@ -11,9 +11,10 @@ import datetime
 
 class CourseOperation(object):
 
-  def __init__(self, db_path="course.db", json_path="course.json", keep_alive=False):
-    self.json_path = json_path
-    self.db_path = db_path
+  def __init__(self, keep_alive=False):
+    package_root = os.path.dirname(__file__)
+    self.json_path = os.path.join(package_root, 'course.json')
+    self.db_path = os.path.join(package_root, 'course.db')
     self.keep_alive = keep_alive
     self.conn = None
     self.cur = None
@@ -125,10 +126,7 @@ def json_convert(input):
     return input
 
 def main():
-  package_root = os.path.dirname(__file__)
-  db_path = os.path.join(package_root, 'course.db')
-  json_path = os.path.join(package_root, 'course.json')
-  co = CourseOperation(db_path=db_path, json_path=json_path)
+  co = CourseOperation()
   co.run()
 
 if __name__ == '__main__':
