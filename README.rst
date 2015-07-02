@@ -28,3 +28,9 @@ refer: http://tech.pro/tutorial/1259/how-to-deploy-simple-and-larger-flask-apps-
   pip install gunicorn
   pip freeze > requirements.txt
   cat 'web: gunicorn routes:app' > Procfile
+
+Config file for Heroku
+
++ Procfile
++ requirements.txt
++ runtime.txt
