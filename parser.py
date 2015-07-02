@@ -88,13 +88,18 @@ def parse_course(driver, city, start_month, end_month, year=None):
         applying = driver.find_element_by_xpath('//*[@id="DG_ClassInfo_ctl'+col+'_Label66"]').text.strip()
         applying = strftime("%Y-%m-%d %H:%M:%S", strptime(applying, "%Y/%m/%d %H:%M:%S"))
       except Exception as e:
-        applying = ''
+        applying = '嗚嗚找不到'
       # get opening date
       try:
         opening = driver.find_element_by_xpath('//*[@id="DG_ClassInfo_ctl'+col+'_Label16"]').text.strip()
         opening = strftime("%Y-%m-%d", strptime(opening, "%Y/%m/%d"))
       except Exception as e:
-        opening = ''
+        opening = '嗚嗚找不到'
+      try:
+        ending = driver.find_element_by_xpath('//*[@id="DG_ClassInfo_ctl'+col+'_Label17"]').text.strip()
+        ending = strftime("%Y-%m-%d", strptime(opening, "%Y/%m/%d"))
+      except Exception, e:
+        ending = '嗚嗚找不到'
       # insert dataset
       dataset[ele.get_attribute('title').split(';')[0]] = {
         'name': ele.text.split('\n')[0].strip(),
@@ -103,7 +108,8 @@ def parse_course(driver, city, start_month, end_month, year=None):
         'number': ele.get_attribute('title').split(';')[0].strip(),
         'register': ele.get_attribute('title').split(';')[1].strip(),
         'applying': applying,
-        'opening': opening
+        'opening': opening,
+        'ending': ending
       }
       # debug e.text and e.get_attribute('title')
       #print(e.text)
