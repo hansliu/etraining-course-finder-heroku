@@ -84,7 +84,7 @@ class CourseOperation(object):
   @within_db_transaction
   def get_course_by_query(self, query):
     q = '%'+query+'%'
-    self.cur.execute('SELECT * FROM course WHERE name LIKE ? OR sponsor LIKE ? ORDER BY datetime(applying) ASC', (q, q,))
+    self.cur.execute('SELECT * FROM course WHERE city LIKE ? OR name LIKE ? OR sponsor LIKE ? ORDER BY datetime(applying) ASC', (q, q, q,))
     return self.cur.fetchall()
 
   def output_json_file(self, dataset):
