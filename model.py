@@ -76,7 +76,7 @@ class CourseOperation(object):
   @within_db_transaction
   def insert_course(self, dataset):
     for key, val in dataset.items():
-      self.cur.execute('INSERT or IGNORE INTO course VALUES (?, ?, ?, ?, ?, ?, ?)', (key, val['city'], val['name'], val['sponsor'], val['register'], val['applying'], val['opening'], val['ending'],))
+      self.cur.execute('INSERT or IGNORE INTO course VALUES (?, ?, ?, ?, ?, ?, ?, ?)', (key, val['city'], val['name'], val['sponsor'], val['register'], val['applying'], val['opening'], val['ending'],))
 
   @within_db_transaction
   def update_course(self, dataset):
