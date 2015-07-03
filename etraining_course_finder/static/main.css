@@ -41,7 +41,7 @@ nav {
 nav a {
   color: #777;
   margin: 0;
-  padding: 0.8em 0.2em;
+  padding: 0.6em 0.2em;
   float: left;
 }
 
@@ -127,7 +127,6 @@ footer {
 /* Add responsive layout for cell phone and small device */
 @media screen and (max-device-width: 768px) {
   nav a {
-    padding: 0.6em 0.2em;
     font-size: 0.9em;
   }
 }
