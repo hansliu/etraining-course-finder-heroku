@@ -10,7 +10,11 @@ from functools import wraps
 import datetime
 
 class CourseOperation(object):
-
+  '''
+  etraining-course-finder model
+  1. insert/get method for sqlite3
+  2. input/output method for json
+  '''
   def __init__(self, keep_alive=False):
     package_root = os.path.dirname(__file__)
     self.json_path = os.path.join(package_root, 'course.json')
