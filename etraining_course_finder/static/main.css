@@ -45,10 +45,6 @@ nav a {
   float: left;
 }
 
-nav a:hover {
-  text-shadow: 1px 1px #000;
-}
-
 nav ul {
   list-style: none;
   margin: 0;
