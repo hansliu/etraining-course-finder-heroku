@@ -12,7 +12,7 @@ app = Flask(__name__)
 def index():
   if request.method == 'POST' and request.form['query'] != '':
     return redirect(url_for('finder', query=request.form['query']))
-  return render_template('finder.html')
+  return render_template('base.html')
 
 @app.route('/search/<query>')
 def finder(query):
