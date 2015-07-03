@@ -125,9 +125,12 @@ footer {
 }
 
 /* Add css style to fb-like button for cell phone and small device */
+.fb-like {
+  max-width: 600px;
+}
+
 .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
   width: 100% !important;
-  max-width: 480px;
 }
 
 /* Add responsive layout for cell phone and small device */
