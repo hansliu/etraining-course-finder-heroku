@@ -18,6 +18,8 @@
     <meta name="baiduspider" content="index, nofollow">
 
     <!-- fb -->
+    <meta property='fb:admins' content='{% if config.FACEBOOK_USER_ID %}{{ config.FACEBOOK_USER_ID }}{% endif %}'>
+    <meta property='fb:app_id' content='{% if config.FACEBOOK_APP_ID %}{{ config.FACEBOOK_APP_ID }}{% endif %}'>
 
     <!-- og -->
     <meta property="og:title" content="{% block ogtitle %}Taiwan eTraining Course Finder{% endblock %}">
