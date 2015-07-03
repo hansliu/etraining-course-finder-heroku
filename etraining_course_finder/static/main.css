@@ -128,6 +128,7 @@ footer {
   background-color: rgba(255, 255, 255, 1);
 }
 
+/* Add css style to fb-like button for cell phone and small device */
 .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
   width: 100% !important;
 }
