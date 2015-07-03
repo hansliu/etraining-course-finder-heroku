@@ -27,10 +27,14 @@ refer: http://tech.pro/tutorial/1259/how-to-deploy-simple-and-larger-flask-apps-
   pip install Flask
   pip install gunicorn
   pip freeze > requirements.txt
-  cat 'web: gunicorn routes:app' > Procfile
+  cat 'web: gunicorn etraining_course_finder:app' > Procfile
 
 Config file for Heroku
 
 + Procfile
 + requirements.txt
 + runtime.txt
+
+Config file for Flask
+
++ publishconf.py
