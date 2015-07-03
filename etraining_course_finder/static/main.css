@@ -124,20 +124,22 @@ footer {
   background-color: rgba(255, 255, 255, 1);
 }
 
+/* Add responsive iframe */
+@media screen and (max-width: 979px) {
+  .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+    width: 100% !important;
+    max-width: 240px;
+  }
+}
+
 /* Add responsive layout for cell phone and small device */
 @media screen and (max-device-width: 768px) {
   nav a {
     padding: 0.6em 0.2em;
     font-size: 0.9em;
   }
-  .fb-like iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
   .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
     width: 100% !important;
-    max-width: 200px;
+    max-width: 240px;
   }
 }
