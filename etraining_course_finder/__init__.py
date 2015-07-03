@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from model import CourseOperation
+from etraining_course_finder.model import CourseOperation
 
 from flask import Flask, request, render_template
 from flask import redirect, url_for
 
 app = Flask(__name__)
-app.config.from_envvar('publishconf.py')
+app.config.from_object('etraining_course_finder.publishconf')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -24,6 +24,3 @@ def finder(query):
 @app.route('/about')
 def about():
   return render_template('about.html')
-
-if __name__ == '__main__':
-  app.run(debug=True)
