@@ -124,14 +124,6 @@ footer {
   background-color: rgba(255, 255, 255, 1);
 }
 
-/* Add responsive iframe */
-@media screen and (max-width: 979px) {
-  .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
-    width: 100% !important;
-    max-width: 240px;
-  }
-}
-
 /* Add responsive layout for cell phone and small device */
 @media screen and (max-device-width: 768px) {
   nav a {
@@ -140,6 +132,8 @@ footer {
   }
   .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
     width: 100% !important;
-    max-width: 240px;
+  }
+  #u_0_3 {
+    display: none;
   }
 }
