@@ -87,7 +87,6 @@ footer {
 
 #content {
   margin: 1.2em 0;
-  padding: 0.2em 1.2em;
   line-height: 1.4em;
 }
 
@@ -99,10 +98,12 @@ footer {
 }
 
 #brief {
+  padding: 0.2em 1.2em;
   background-color: rgba(255, 255, 255, 1);
 }
 
 #course {
+  padding: 0.2em 1.2em;
   background-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -127,5 +128,6 @@ footer {
 }
 
 #about {
+  padding: 0.2em 1.2em;
   background-color: rgba(255, 255, 255, 1);
 }
