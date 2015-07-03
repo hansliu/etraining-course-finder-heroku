@@ -20,9 +20,9 @@
     <!-- fb -->
 
     <!-- og -->
-    <meta property="og:title" content="{% block ogtitle %}{% endblock %}">
+    <meta property="og:title" content="{% block ogtitle %}Taiwan eTraining Course Finder{% endblock %}">
     <meta property="og:type" content="{% block ogtype %}website{% endblock %}">
-    <meta property="og:url" content="{% block ogurl %}{{ SITEURL }}{% endblock %}">
+    <meta property="og:url" content="{% block ogurl %}{{ request.url_root }}{% endblock %}">
     <meta property="og:description" content="eTraining Course Finder 是一個支援快速尋找產業人才投資方案課程的網站">
 
     <!-- cdn css -->
@@ -78,10 +78,33 @@
         </div>
 
         <footer>
+            <div class="fb-like" data-href="{{ request.url_root }}" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+
             <h4>免責聲明</h4>
 
             <p>本網站所載的所有資料、課程名稱、開課地點、開訓日期、報名日期等（以下簡稱「資料」），只供參考之用。<a href="http://tims.etraining.gov.tw/timsonline/index.aspx">『勞動部勞動力發展署-產業人才投資方案』</a>隨時可能更改資料。雖然本網站作者已盡力確保本網站的資料準確性，但本網站作者不會明示或隱含保證該等資料均為準確無誤。本網站作者不會對該等資料的任何錯誤或遺漏承擔責任。</p>
         </footer>
     </div>
+
+{% if config.FACEBOOK_APP_ID %}
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '{{ config.FACEBOOK_APP_ID }}',
+            status     : true,
+            xfbml      : true,
+            version    : 'v2.3'
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/{{ config.FACEBOOK_APP_FORMAT }}/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+{% endif %}
 </body>
 </html>

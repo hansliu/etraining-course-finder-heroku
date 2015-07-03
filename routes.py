@@ -7,6 +7,7 @@ from flask import Flask, request, render_template
 from flask import redirect, url_for
 
 app = Flask(__name__)
+app.config.from_envvar('publishconf.py')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -18,7 +19,7 @@ def index():
 def finder(query):
   co = CourseOperation()
   course_list = co.get_course_by_query(query)
-  return render_template('finder.html', query=query ,course_list=course_list)
+  return render_template('finder.html', query=query, course_list=course_list)
 
 @app.route('/about')
 def about():
