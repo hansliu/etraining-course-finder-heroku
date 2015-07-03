@@ -52,8 +52,7 @@
                   <input id="query" type="text" name="query" placeholder="請在這欄輸入課程名稱或單位" value="{{ query }}">
                 </fieldset>
             </form>
-            <div class="fb-like" data-href="{{ request.url_root }}" data-width="480px" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
-            <iframe src="//www.facebook.com/plugins/like.php?href={{ request.url_root }}%2F&amp;width=400&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=true&amp;max-height=80&amp;appId={{ config.FACEBOOK_APP_ID }}" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:20px;" allowTransparency="true"></iframe>
+            <iframe src="//www.facebook.com/plugins/like.php?href={{ request.url_root }}%2F&amp;width=400&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=true&amp;appId={{ config.FACEBOOK_APP_ID }}" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:35px;" allowTransparency="true"></iframe>
         </div>
 
         <header>
