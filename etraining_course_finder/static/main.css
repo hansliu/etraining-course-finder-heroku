@@ -130,10 +130,4 @@ footer {
     padding: 0.6em 0.2em;
     font-size: 0.9em;
   }
-  .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
-    width: 100% !important;
-  }
-  #u_0_3 {
-    display: none;
-  }
 }
