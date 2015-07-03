@@ -20,6 +20,10 @@
     <!-- fb -->
 
     <!-- og -->
+    <meta property="og:title" content="{% block ogtitle %}{% endblock %}">
+    <meta property="og:type" content="{% block ogtype %}website{% endblock %}">
+    <meta property="og:url" content="{% block ogurl %}{{ SITEURL }}{% endblock %}">
+    <meta property="og:description" content="eTraining Course Finder 是一個支援快速尋找產業人才投資方案課程的網站">
 
     <!-- cdn css -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -33,9 +37,6 @@
 </head>
 <body>
     <div id="container">
-
-        <header>
-        </header>
 
         <div id="navbar">
             <nav>
@@ -51,6 +52,12 @@
             </form>
         </div>
 
+        <header>
+            <h1>網站說明</h1>
+
+            <p> <b>eTrainingCourseFinder</b> 提供使用者快速尋找<a href="http://tims.etraining.gov.tw/timsonline/index.aspx">『勞動部勞動力發展署-產業人才投資方案』</a>上面開放的產投課程（目前收集的課程範圍只有臺北市和新北市），使用者可以透過關鍵字搜尋，就可以找到相關的課程名稱、開課地點、開訓日期、報名日期等詳細資訊，也可以透過點擊開課代號，直接連結到勞動部網站的課程細節，瀏覽課程師資、課表大綱與線上報名。</p>
+        </header>
+
         <!--[if lt IE 10]>
         <div class='old-ie'>
             <p>你的瀏覽器有點太舊囉！這個瀏覽器可能會沒辦法正常瀏覽這個網站，建議你更換一個瀏覽器或升級現在的瀏覽器。</p>
@@ -65,13 +72,18 @@
 
         <div id="content">
             {% block content %}
+            <!--
             <div class="loading">
                 <i class="fa fa-spinner fa-pulse fa-4x"></i>
             </div>
+            -->
             {% endblock %}
         </div>
 
         <footer>
+            <h3>免責聲明<h3>
+
+            <p>本網站所載的所有資料、課程名稱、開課地點、開訓日期、報名日期等（以下簡稱「資料」），只供參考之用，<a href="http://tims.etraining.gov.tw/timsonline/index.aspx">『勞動部勞動力發展署-產業人才投資方案』</a>隨時有可能更改資料。雖然本網站作者已盡力確保本網站的資料準確性，但本網站作者不會明示或隱含保證該等資料均為準確無誤。本網站作者不會對該等資料的任何錯誤或遺漏承擔責任。</p>
         </footer>
     </div>
 </body>
