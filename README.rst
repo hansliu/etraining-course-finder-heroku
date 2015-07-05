@@ -14,10 +14,20 @@ What is etraining-course-finder
 #. 顯示課程資訊、課程的報名時間與開訓時間。
 #. 顯示課程代碼，可以連結到相關課程的詳細介紹頁面。
 
+Build up course.db in yourself platform
+---------------------------------------
+
+Run model.py directly
+
+::
+
+  cd etraining-course-finder-heroku/
+  python3.* ./etraining_course_finder/model.py
+
 Build up etraining-course-finder in Heroku
 ------------------------------------------
 
-refer: http://tech.pro/tutorial/1259/how-to-deploy-simple-and-larger-flask-apps-on-heroku
+Refer: http://tech.pro/tutorial/1259/how-to-deploy-simple-and-larger-flask-apps-on-heroku
 
 ::
 
@@ -29,7 +39,7 @@ refer: http://tech.pro/tutorial/1259/how-to-deploy-simple-and-larger-flask-apps-
   pip freeze > requirements.txt
   cat 'web: gunicorn etraining_course_finder:app' > Procfile
 
-Because XVFB issue in Heroku, you should build up course.db in yourself platforms
+Because XVFB issue in Heroku, you should build up course.db in yourself platform
 
 Config file for Heroku
 
