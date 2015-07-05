@@ -21,8 +21,23 @@ Run model.py directly
 
 ::
 
+  # build up db
   cd etraining-course-finder-heroku/
   python3.* ./etraining_course_finder/model.py
+
+  # update db to github
+  git pull ; git add -u ; git commit -m'updated db' ; git push
+
+Save the commands to script, and run build up course.db by cronjob
+
+::
+
+  # edit cronjob
+  crontab -e
+
+  # setup schedule for your script
+  HOME=/home/<your_account>
+  1 6 */7 * * <your_script> &> /dev/null
 
 Build up etraining-course-finder in Heroku
 ------------------------------------------
