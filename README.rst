@@ -29,6 +29,8 @@ refer: http://tech.pro/tutorial/1259/how-to-deploy-simple-and-larger-flask-apps-
   pip freeze > requirements.txt
   cat 'web: gunicorn etraining_course_finder:app' > Procfile
 
+Because XVFB issue in Heroku, you should build up course.db in yourself platforms
+
 Config file for Heroku
 
 + Procfile
