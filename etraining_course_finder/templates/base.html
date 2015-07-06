@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <base target="{% block basetarget %}_self{% endblock %}">
 
-    <title>{% block title %}Taiwan eTraining Course Finder{% endblock %}</title>
+    <title>{% block title %}{{ config.SITENAME }}{% endblock %}</title>
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
 
     <!-- parser -->
@@ -22,7 +22,7 @@
     <meta property='fb:app_id' content='{% if config.FACEBOOK_APP_ID %}{{ config.FACEBOOK_APP_ID }}{% endif %}'>
 
     <!-- og -->
-    <meta property="og:title" content="{% block ogtitle %}Taiwan eTraining Course Finder{% endblock %}">
+    <meta property="og:title" content="{% block ogtitle %}{{ config.SITENAME }}{% endblock %}">
     <meta property="og:type" content="{% block ogtype %}website{% endblock %}">
     <meta property="og:url" content="{% block ogurl %}{{ request.url }}{% endblock %}">
     <meta property="og:description" content="eTraining Course Finder 是一個支援快速尋找產業人才投資方案課程的網站">
