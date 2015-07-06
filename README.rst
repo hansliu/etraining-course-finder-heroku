@@ -4,9 +4,11 @@ eTraining Course Finder
 What is etraining-course-finder
 -------------------------------
 
-因為勞動部勞動力發展署網站實在太難用，所以自己開發一個好用的網站頁面。
+因為勞動部勞動力發展署網站實在太難用，所以自己開發一個好用的網站。
 
-使用 Selenium 收集勞動部勞動力發展署網站公開的課程資料（目前收集的課程範圍只有臺北市和新北市），然後將課程資料建置索引之後儲存於 Sqlite3 的資料庫中。
+實作上採用的是 Python3 搭配 Flask 架構。
+
+在課程資料來源的部份，使用 Selenium 收集勞動部勞動力發展署網站公開的課程資料（目前收集的課程範圍只有臺北市和新北市），然後將課程資料建置索引之後儲存於 Sqlite3 的資料庫中。
 
 目前的功能：
 
@@ -37,7 +39,7 @@ Save the commands to script, and run build up course.db by cronjob
 
   # setup schedule for your script
   HOME=/home/<your_account>
-  1 6 */7 * * <your_script> &> /dev/null
+  1 6 * * 1 <your_script> &> /dev/null
 
 Build up etraining-course-finder in Heroku
 ------------------------------------------
