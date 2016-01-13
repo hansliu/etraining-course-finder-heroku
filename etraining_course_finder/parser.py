@@ -74,19 +74,19 @@ def parse_course(driver, city, start_month, end_month, year=None):
   # submit
   driver.find_element_by_name("search").click()
   check_popup_alert(driver)
-  check_popup_alert(driver)
 
   # get pages in this selection
   try:
-    pages = driver.find_element_by_id('PageControler1_PageCountLabel')
+    page_count = driver.find_element_by_id('PageControler1_PageCountLabel')
+    pages = int(page_count.text)
   except Exception as e:
-    pages = "2"
+    pages = 2
     error_message = e
-  # debug pages.text
-  #print(pages.text)
+  # debug page_count.text
+  #print(page_count.text)
 
   # parse class info: name,number,member from pages
-  for i in range(1, int(pages.text)):
+  for i in range(1, pages):
     elems = driver.find_elements_by_xpath('//*[@id="DG_ClassInfo"]/tbody/tr/td/a')
     # get format by range in this elems
     columns = [format(x, '02d') for x in range(3, len(elems)+3)]
@@ -126,10 +126,13 @@ def parse_course(driver, city, start_month, end_month, year=None):
       # debug e.text and e.get_attribute('title')
       #print(e.text)
       #print(e.get_attribute('title'))
-    sleep(3.5)
+    sleep(2.5)
     # go next page after sleep
-    driver.find_element_by_id('PageControler1_NextButton').click()
-    check_popup_alert(driver)
+    try:
+      driver.find_element_by_id('PageControler1_NextButton').click()
+      check_popup_alert(driver)
+    except Exception as e:
+      error_message = e
   return dataset
 
 def run(start_month=1, end_month=12):
