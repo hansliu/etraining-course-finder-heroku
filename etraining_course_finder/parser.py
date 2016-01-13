@@ -62,18 +62,26 @@ def select_course_city(driver, city="臺北市"):
   check_popup_alert(driver)
 
 def parse_course(driver, city, start_month, end_month, year=None):
+  error_message = None
   dataset = {}
   etraining_url = "http://tims.etraining.gov.tw/timsonline/index.aspx"
   driver.get(etraining_url)
+  check_popup_alert(driver)
+  check_popup_alert(driver)
   # select
   select_course_city(driver, city)
   select_course_duration(driver, start_month, end_month, year)
   # submit
   driver.find_element_by_name("search").click()
   check_popup_alert(driver)
+  check_popup_alert(driver)
 
   # get pages in this selection
-  pages = driver.find_element_by_id('PageControler1_PageCountLabel')
+  try:
+    pages = driver.find_element_by_id('PageControler1_PageCountLabel')
+  except Exception as e:
+    pages = "2"
+    error_message = e
   # debug pages.text
   #print(pages.text)
 
@@ -89,18 +97,21 @@ def parse_course(driver, city, start_month, end_month, year=None):
         applying = strftime("%Y-%m-%d %H:%M:%S", strptime(applying, "%Y/%m/%d %H:%M:%S"))
       except Exception as e:
         applying = '嗚嗚找不到'
+        error_message = e
       # get opening date
       try:
         opening = driver.find_element_by_xpath('//*[@id="DG_ClassInfo_ctl'+col+'_Label16"]').text.strip()
         opening = strftime("%Y-%m-%d", strptime(opening, "%Y/%m/%d"))
       except Exception as e:
         opening = '嗚嗚找不到'
+        error_message = e
       # get ending date
       try:
         ending = driver.find_element_by_xpath('//*[@id="DG_ClassInfo_ctl'+col+'_Label17"]').text.strip()
         ending = strftime("%Y-%m-%d", strptime(ending, "%Y/%m/%d"))
       except Exception as e:
         ending = '嗚嗚找不到'
+        error_message = e
       # insert dataset
       dataset[ele.get_attribute('title').split(';')[0]] = {
         'name': ele.text.split('\n')[0].strip(),
