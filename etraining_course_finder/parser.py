@@ -146,6 +146,11 @@ def run(start_month=1, end_month=12):
   # parse dataset
   dataset.update(parse_course(driver, "臺北市", start_month, end_month))
   dataset.update(parse_course(driver, "新北市", start_month, end_month))
+  dataset.update(parse_course(driver, "高雄市", start_month, end_month))
+  dataset.update(parse_course(driver, "臺中市", start_month, end_month))
+  dataset.update(parse_course(driver, "桃園市", start_month, end_month))
+  dataset.update(parse_course(driver, "臺南市", start_month, end_month))
+  dataset.update(parse_course(driver, "新竹市", start_month, end_month))
 
   # disable
   driver.close()
