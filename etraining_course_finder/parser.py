@@ -89,8 +89,13 @@ def parse_course(driver, city, start_month, end_month, year=None):
   for i in range(1, pages):
     elems = driver.find_elements_by_xpath('//*[@id="DG_ClassInfo"]/tbody/tr/td/a')
     # get format by range in this elems
+    tr = [format(x, 'd') for x in range(4, len(elems)+4)]
     columns = [format(x, '02d') for x in range(3, len(elems)+3)]
-    for ele, col in zip(elems, columns):
+    for ele, tr, col in zip(elems, tr, columns):
+      # get course number
+      number = driver.find_element_by_xpath('//*[@id="DG_ClassInfo"]/tbody/tr['+tr+']/td[2]').text.strip()
+      # get course register
+      register = driver.find_element_by_xpath('//*[@id="DG_ClassInfo"]/tbody/tr['+tr+']/td[3]').text.strip()
       # get applying datetime
       try:
         applying = driver.find_element_by_xpath('//*[@id="DG_ClassInfo_ctl'+col+'_Label66"]').text.strip()
@@ -113,12 +118,12 @@ def parse_course(driver, city, start_month, end_month, year=None):
         ending = '嗚嗚找不到'
         error_message = e
       # insert dataset
-      dataset[ele.get_attribute('title').split(';')[0]] = {
+      dataset[number] = {
         'name': ele.text.split('\n')[0].strip(),
         'sponsor': ele.text.split('\n')[1].strip(),
         'city': city,
-        'number': ele.get_attribute('title').split(';')[0].strip(),
-        'register': ele.get_attribute('title').split(';')[1].strip(),
+        'number': number,
+        'register': register,
         'applying': applying,
         'opening': opening,
         'ending': ending
@@ -138,11 +143,12 @@ def parse_course(driver, city, start_month, end_month, year=None):
 def run(start_month=1, end_month=12):
   dataset = {}
   # enable virtual display
-  display = Display(visible=0, size=(1024, 768))
+  display = Display(visible=0, size=(1280, 1024))
   display.start()
+  # use FirefoxProfile to setup TW GOV cert
+  fp = webdriver.FirefoxProfile('/tmp/Firefox/profile')
   # use firefox for default webdriver
-  driver = webdriver.Firefox()
-
+  driver = webdriver.Firefox(fp)
   # parse dataset
   dataset.update(parse_course(driver, "臺北市", start_month, end_month))
   dataset.update(parse_course(driver, "新北市", start_month, end_month))
@@ -151,7 +157,6 @@ def run(start_month=1, end_month=12):
   dataset.update(parse_course(driver, "桃園市", start_month, end_month))
   dataset.update(parse_course(driver, "臺南市", start_month, end_month))
   dataset.update(parse_course(driver, "新竹市", start_month, end_month))
-
   # disable
   driver.close()
   display.stop()
