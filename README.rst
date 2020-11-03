@@ -1,6 +1,11 @@
 eTraining Course Finder
 =======================
 
+此專案已經失效
+--------------
+
+因為 Heroku 不支援 xvfb 的關係，需要升級並修改 Selenium 的使用方法。
+
 What is etraining-course-finder
 -------------------------------
 
